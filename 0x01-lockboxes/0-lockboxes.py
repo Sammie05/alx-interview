@@ -1,19 +1,24 @@
 #!/usr/bin/python3
+"""Python Lockboxes
+"""
 
-""" a method that can determines if all boxes can be opened """
 
+def canUnlockAll(boxes):
+    """Checks for every box
+    args:
+        boxes: List
+    return:
+        Boolean
+    """
+    open_boxes = [0]
+    visited_boxes = {0}
 
-def canUnlockAll(Boxes):
-    """ a method that determines if all boxes are opened """
-    unlocked = {0}
-    stack = [0]
-
-    while stack:
-        current_box = stack.pop()
+    while open_boxes:
+        current_box = open_boxes.pop(0)
 
         for key in boxes[current_box]:
-            if key < len(boxes) and key not in unlocked:
-                unclocked.add(key)
-                stack.append(key)
+            if key < len(boxes) and key not in visited_boxes:
+                visited_boxes.add(key)
+                open_boxes.append(key)
 
-    return len(unlocked) == len(boxes)
+    return len(visited_boxes) == len(boxes)
