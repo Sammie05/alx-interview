@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """0. UTF-8 Validation
 """
 
@@ -30,6 +29,6 @@ def validUTF8(data):
             if not (num & mask_1 and not (num & mask_2)):
                 return False
 
-            num_bytes -= 1
+        num_bytes -= 1
 
-        return num_bytes == 0
+    return num_bytes == 0
